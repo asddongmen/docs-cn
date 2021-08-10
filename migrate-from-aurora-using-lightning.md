@@ -19,7 +19,7 @@ summary: 了解如何使用 TiDB Lightning 从 Amazon Aurora MySQL 迁移全量�
 
 根据部署方式不同，按如下步骤编辑配置文件 `tidb-lighting.toml`。
 
-1. 将 配置文件中 `[mydumper]` 部分的 `data-source-dir` 设置为[第一步](#第一步从-aurora-导出全量数据至-amazon-s3)导出的 S3 Bucket 路径。
+1. 将配置文件中 `[mydumper]` 部分的 `data-source-dir` 设置为[第一步](#第一步从-aurora-导出全量数据至-amazon-s3)导出的 S3 Bucket 路径。
 
     ```
     [mydumper]
@@ -56,7 +56,7 @@ summary: 了解如何使用 TiDB Lightning 从 Amazon Aurora MySQL 迁移全量�
     [mydumper]
     no-schema = true
 
-    [mydumper.files]
+    [[mydumper.files]]
     # 使用单引号字符串避免转义
     pattern = '(?i)^(?:[^/]*/)*([a-z0-9_]+)\.([a-z0-9_]+)/(?:[^/]*/)*(?:[a-z0-9\-_.]+\.(parquet))$'
     schema = '$1'
